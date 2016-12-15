@@ -5,6 +5,6 @@
 ##Introduction
 Croppie js is a javascript library for cropping images and sending the cropped image to the server
 
-##Project Dsescription
-
+##Checkout Descriptions
+This branch reveals the creation of the view and how the croppie library integrates to it.
 ##Conclusion
