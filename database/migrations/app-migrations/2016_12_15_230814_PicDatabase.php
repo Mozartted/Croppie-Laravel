@@ -13,7 +13,10 @@ class PicDatabase extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('picbase',function (Blueprint $table) {
+          $table->integer('id');
+          $table->string('url');
+        });
     }
 
     /**
