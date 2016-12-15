@@ -9,7 +9,12 @@
 
         <!-- Fonts -->
         <link href="css/app.css" rel="stylesheet">
+        <link href="css/croppie.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <script src="js/jquery.js"></script>
+
 
         <!-- Styles -->
         <style>
@@ -66,8 +71,22 @@
         </style>
     </head>
     <body>
-        <div class="col-md-12"> 
+        <div class="col-md-12">
+          <div class="container">
 
+            <div class="centered">
+              <div class="title">
+                Croppie-Js
+              </div>
+              <div id="upload-into"></div>
+              <button class="btn btn-primary">
+                <input type=file value="upload a pic" id="uploading"/>
+              </button>
+
+            </div>
+          </div>
         </div>
     </body>
+    <script src="js/croppie.js"></script>
+    <script src="js/main.js"></script>
 </html>
