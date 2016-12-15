@@ -1,4 +1,5 @@
 $( document ).ready(function(){
+		$(".alert-danger").hide();
 
 		var $uploadCrop;
 
@@ -29,10 +30,12 @@ $( document ).ready(function(){
 				height: 200,
 				type: 'circle'
 			},
-            boundary: {
-                width: 300,
-                height: 300
-            },
+
+			boundary: {
+      	width: 300,
+        height: 300
+      },
+
 			enableExif: true
 		});
 
@@ -49,17 +52,19 @@ $( document ).ready(function(){
                 });
 
 				$.ajax(
-                    {
-                    url: 'steps-register/pic',
-    		        type: 'POST',
-    		        data: {'image':resp},
-                    dataType:'json',
-    			    success: function (data) {
-    				html = '<li>'+data.message+'</li>';
-    				$(".alert-danger").html(html).show();
-                    }
-                });
-			});
+              	{
+                	url: 'ajax/upload',
+    		        	type: 'POST',
+    		        	data: {'image':resp},
+                  dataType:'json',
+    			    		success: function (data) {
+    													html = '<li>'+data.message+'</li>';
+    													$(".alert-danger").html(html).show();
+                    				}
+                }
+				);
+			}
+		);
 
 			//function that changes the tab to the next
 		});
