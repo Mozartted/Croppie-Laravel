@@ -1,5 +1,7 @@
 <?php
 use Illuminate\Http\Request;
+use App\Image;
+use Faker\Factory as Faker;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,17 +18,18 @@ Route::get('/', function () {
 });
 
 //an ajax request route
-Route::post('/ajax/upload',function(Request $request){
+Route::post('/ajax/upload',function(Request $req){
   if($req->ajax()){
       $data=$req->image;
 
-      $profileUrl=saveProfileAjax($data, 'images/profileimages/');
+      $profileUrl=saveProfileAjax($data, 'images/pics/');
 
-      $image=new Image([
-          'url'=>$profileUrl
-      ]);
+      $image=new Image();
+      $image->url=$profileUrl;
+      
+      if($image->save())
 
-      if($image->save()){
+      {
           return Response::json(
               ['message'=>"completed"]
           );
@@ -39,7 +42,7 @@ Route::post('/ajax/upload',function(Request $request){
 });
 
 function saveProfileAjax($data, $path="images/profileimages/"){
-    $filename = $this->renameBase64();
+    $filename = renameBase64();
 
 
     list($type, $data) = explode(';', $data);
@@ -48,4 +51,13 @@ function saveProfileAjax($data, $path="images/profileimages/"){
 
     file_put_contents($path.$filename.'.png', $data);
     return $path.$filename.'.png';
+}
+
+function renameBase64(){
+
+
+    $faker = Faker::create();
+
+    return $faker->sha1;
+
 }

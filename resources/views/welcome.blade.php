@@ -79,8 +79,12 @@
                 Croppie-Js
               </div>
               <div id="upload-into"></div>
+              <meta name="csrf-token" content="{{ csrf_token()}}">
               <button class="btn btn-primary">
                 <input type=file value="upload a pic" id="uploading"/>
+              </button>
+              <button class="btn btn-success upload-result">
+                Upload
               </button>
 
             </div>
